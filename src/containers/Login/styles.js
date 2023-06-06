@@ -22,14 +22,19 @@ export const ContainerItens = styled.div`
   flex-direction: column;
   justify-content: center;
 
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
   h1 {
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
     line-height: 28px;
     color: #ffffff;
-    text-align: center;
     margin-top: 50px;
+    margin-left: 140px;
   }
 
   img {
