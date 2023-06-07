@@ -33,8 +33,8 @@ export const ContainerItens = styled.div`
     font-size: 24px;
     line-height: 28px;
     color: #ffffff;
-    margin-top: 50px;
-    margin-left: 140px;
+    margin-top: 15px;
+    margin-left: 100px;
   }
 
   img {
@@ -49,7 +49,7 @@ export const Label = styled.p`
   font-size: 12px;
   line-height: 14px;
   color: #ffffff;
-  margin-top: 25px;
+  margin-top: ${props => (props.error ? '12px' : '25px')};
   margin-bottom: 5px;
   padding-left: 5px;
 `

@@ -6,13 +6,13 @@ import * as Yup from 'yup'
 
 import LoginImg from '../../assets/Login-image.svg'
 import Logo from '../../assets/Logo-image.svg'
+import Button from '../../components/Button'
 import {
   Container,
   ContainerItens,
   LoginImage,
   Label,
   Input,
-  Button,
   ErrorMessage,
   P
 } from '../../containers/Login/styles'
@@ -67,7 +67,9 @@ function Login() {
           />
           <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
-          <Button type="submit">Entrar</Button>
+          <Button type="submit" style={{ marginTop: 66, marginBottom: 28 }}>
+            Entrar
+          </Button>
         </form>
 
         <P>
