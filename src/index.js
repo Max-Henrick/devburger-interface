@@ -8,7 +8,7 @@ import GlobalStyles from './styles/globalStyles'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <>
-    <Login />
+    <Register />
     <GlobalStyles />
   </>
 )

@@ -29,7 +29,7 @@ function Register() {
       .min(6, 'A senha deve conter 6 digitos'),
     confirmPassword: Yup.string()
       .required('A confirmação da senha é obrigatória')
-      .min(6, 'A senha deve ser iguais')
+      .oneOf([Yup.ref('password')], 'As senhas devem ser iguais')
   })
 
   const {
