@@ -10,7 +10,7 @@ import Button from '../../components/Button'
 import {
   Container,
   ContainerItens,
-  LoginImage,
+  RegisterImage,
   Label,
   Input,
   ErrorMessage,
@@ -50,7 +50,7 @@ function Register() {
 
   return (
     <Container>
-      <LoginImage src={logoRegister} alt="register-image" />
+      <RegisterImage src={logoRegister} alt="register-image" />
       <ContainerItens>
         <img src={Logo} alt="Logo" />
         <h1>Cadastre-se</h1>
