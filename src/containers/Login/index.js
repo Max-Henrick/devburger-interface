@@ -17,9 +17,12 @@ import {
   ErrorMessage,
   P
 } from '../../containers/Login/styles'
+import { useUser } from '../../hooks/UserContext'
 import api from '../../services/api'
 
 function Login() {
+  const { putUserData, userData } = useUser()
+
   const schema = Yup.object().shape({
     email: Yup.string()
       .email('Verifique se o e-mail é válido')
@@ -36,21 +39,28 @@ function Login() {
   } = useForm({ resolver: yupResolver(schema) })
 
   const onSubmit = async loginData => {
-    await toast.promise(
-      api.post(
+    try {
+      const { status, data } = await api.post(
         'login',
         {
           email: loginData.email,
           password: loginData.password
         },
         { validateStatus: () => true }
-      ),
-      {
-        pending: 'Validando seus dados!',
-        success: 'Seja Bem-vindo!',
-        error: 'Verifique seu e-mail e senha! 🤯'
+      )
+      putUserData(data)
+      console.log(userData)
+
+      if (status === 201 || status === 200) {
+        toast.success('Seja Bem-vindo')
+      } else if (status === 400 || status === 401) {
+        toast.error('Verifique se email ou senha estão corretos')
+      } else {
+        throw new Error()
       }
-    )
+    } catch (error) {
+      toast.error('Tente novamente mais tarde')
+    }
   }
 
   return (
