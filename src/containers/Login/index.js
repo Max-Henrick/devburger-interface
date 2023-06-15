@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -21,7 +22,7 @@ import { useUser } from '../../hooks/UserContext'
 import api from '../../services/api'
 
 function Login() {
-  const { putUserData, userData } = useUser()
+  const { putUserData } = useUser()
 
   const schema = Yup.object().shape({
     email: Yup.string()
@@ -49,7 +50,6 @@ function Login() {
         { validateStatus: () => true }
       )
       putUserData(data)
-      console.log(userData)
 
       if (status === 201 || status === 200) {
         toast.success('Seja Bem-vindo')
@@ -93,7 +93,10 @@ function Login() {
         </form>
 
         <P>
-          Não possui conta? <a>Cadastre-se</a>
+          Não possui conta?{' '}
+          <Link style={{ color: 'white' }} to="/cadastro">
+            Cadastre-se
+          </Link>
         </P>
       </ContainerItens>
     </Container>

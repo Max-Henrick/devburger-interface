@@ -1,4 +1,4 @@
-import React, { useContext, createContext, useState } from 'react'
+import React, { useContext, createContext, useState, useEffect } from 'react'
 
 import Proptypes from 'prop-types'
 
@@ -7,9 +7,23 @@ const UserContext = createContext({})
 export const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState({})
 
-  const putUserData = userInfo => {
+  const putUserData = async userInfo => {
     setUserData(userInfo)
+
+    await localStorage.setItem('devburger:userData', JSON.stringify(userInfo))
   }
+
+  useEffect(() => {
+    const loadUserData = async () => {
+      const clientInfo = await localStorage.getItem('devburger:userData')
+
+      if (clientInfo) {
+        setUserData(JSON.parse(clientInfo))
+      }
+    }
+
+    loadUserData()
+  }, [])
 
   return (
     <UserContext.Provider value={{ putUserData, userData }}>
