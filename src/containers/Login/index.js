@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -22,6 +22,8 @@ import { useUser } from '../../hooks/UserContext'
 import api from '../../services/api'
 
 function Login() {
+  const history = useHistory()
+
   const { putUserData } = useUser()
 
   const schema = Yup.object().shape({
@@ -50,6 +52,7 @@ function Login() {
         { validateStatus: () => true }
       )
       putUserData(data)
+      history.push('/')
 
       if (status === 201 || status === 200) {
         toast.success('Seja Bem-vindo')
