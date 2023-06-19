@@ -7,7 +7,8 @@ import {
   CategoryImg,
   Container,
   ImageCarousel,
-  Button
+  Button,
+  ContainerItens
 } from '../CategoryCarousel/styles'
 
 function CategoryCarousel() {
@@ -41,10 +42,10 @@ function CategoryCarousel() {
       >
         {categories &&
           categories.map(category => (
-            <div key={category.id}>
+            <ContainerItens key={category.id}>
               <ImageCarousel src={category.url} alt="Foto da categoria" />
               <Button>{category.name}</Button>
-            </div>
+            </ContainerItens>
           ))}
       </Carousel>
     </Container>
