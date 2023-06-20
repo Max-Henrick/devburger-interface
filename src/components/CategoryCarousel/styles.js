@@ -30,6 +30,7 @@ export const CategoryImg = styled.img``
 export const ContainerItens = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 15px;
 `
 
 export const ImageCarousel = styled.img`

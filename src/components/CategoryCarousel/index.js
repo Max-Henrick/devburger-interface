@@ -18,7 +18,6 @@ function CategoryCarousel() {
       const { data } = await api.get('categories')
 
       setCategories(data)
-      console.log(data)
     }
 
     loadCategory()

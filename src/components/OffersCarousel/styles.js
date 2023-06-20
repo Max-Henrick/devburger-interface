@@ -36,6 +36,8 @@ export const ContainerItens = styled.div`
     font-size: 16px;
     line-height: 120%;
     color: #424242;
+    margin-bottom: 10px;
+    padding-left: 5px;
   }
 `
 
