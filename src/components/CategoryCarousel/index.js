@@ -11,7 +11,7 @@ import {
   ContainerItens
 } from '../CategoryCarousel/styles'
 
-function CategoryCarousel() {
+export function CategoryCarousel() {
   const [categories, setCategories] = useState([])
   useEffect(() => {
     async function loadCategory() {
@@ -50,5 +50,3 @@ function CategoryCarousel() {
     </Container>
   )
 }
-
-export default CategoryCarousel

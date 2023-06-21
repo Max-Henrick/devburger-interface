@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react'
 
 import ProductLogo from '../../assets/logo-index.svg'
+import { CardProduct } from '../../components'
 import api from '../../services/api'
+import formatCurrency from '../../utils/formatCurrency'
 import {
   ProductImg,
   Container,
   CategoryButton,
-  ContainerItens
+  ContainerItens,
+  ContainerCard
 } from '../Product/styles'
 
-function Product() {
+export function Product() {
   const [categories, setCategories] = useState([])
-
+  const [products, setProducts] = useState([])
+  const [filteredProducts, setfilteredProducts] = useState([])
   const [isActiveCategory, setIsActiveCategory] = useState(0)
 
   useEffect(() => {
@@ -23,8 +27,30 @@ function Product() {
       setCategories(newCategory)
     }
 
+    async function loadProducts() {
+      const { data } = await api.get('products')
+
+      const formatPrice = data.map(product => {
+        return { ...product, formatPrice: formatCurrency(product.price) }
+      })
+
+      setProducts(formatPrice)
+    }
+
+    loadProducts()
     loadCategory()
   }, [])
+
+  useEffect(() => {
+    if (isActiveCategory === 0) {
+      setfilteredProducts(products)
+    } else {
+      const filteredProducts = products.filter(
+        product => product.category_id === isActiveCategory
+      )
+      setfilteredProducts(filteredProducts)
+    }
+  }, [isActiveCategory, products])
 
   return (
     <Container>
@@ -44,8 +70,12 @@ function Product() {
             </CategoryButton>
           ))}
       </ContainerItens>
+      <ContainerCard>
+        {filteredProducts &&
+          filteredProducts.map(product => (
+            <CardProduct key={product.id} product={product} />
+          ))}
+      </ContainerCard>
     </Container>
   )
 }
-
-export default Product

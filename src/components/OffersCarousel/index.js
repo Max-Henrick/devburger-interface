@@ -12,7 +12,7 @@ import {
   ContainerItens
 } from '../OffersCarousel/styles'
 
-function OffersCarousel() {
+export function OffersCarousel() {
   const [offers, setOffers] = useState([])
   useEffect(() => {
     async function loadOffers() {
@@ -59,5 +59,3 @@ function OffersCarousel() {
     </Container>
   )
 }
-
-export default OffersCarousel

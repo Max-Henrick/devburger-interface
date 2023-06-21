@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -8,7 +8,7 @@ import * as Yup from 'yup'
 
 import Logo from '../../assets/Logo-image.svg'
 import logoRegister from '../../assets/logo-register.svg'
-import Button from '../../components/Button'
+import { Button } from '../../components'
 import {
   Container,
   ContainerItens,
@@ -20,7 +20,8 @@ import {
 } from '../../containers/Register/styles'
 import api from '../../services/api'
 
-function Register() {
+export function Register() {
+  const history = useHistory()
   const schema = Yup.object().shape({
     name: Yup.string().required('O nome é obrigatório'),
     email: Yup.string()
@@ -62,6 +63,10 @@ function Register() {
     } catch (error) {
       toast.error('Tente novamente mais tarde')
     }
+
+    setTimeout(() => {
+      history.push('/login')
+    }, 2000)
   }
 
   return (
@@ -105,7 +110,7 @@ function Register() {
           <ErrorMessage>{errors.confirmPassword?.message}</ErrorMessage>
 
           <Button type="submit" style={{ marginTop: 26, marginBottom: 28 }}>
-            Entrar
+            Cadastrar-se
           </Button>
         </form>
 
@@ -119,5 +124,3 @@ function Register() {
     </Container>
   )
 }
-
-export default Register

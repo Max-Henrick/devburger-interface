@@ -8,7 +8,7 @@ import * as Yup from 'yup'
 
 import LoginImg from '../../assets/Login-image.svg'
 import Logo from '../../assets/Logo-image.svg'
-import Button from '../../components/Button'
+import { Button } from '../../components'
 import {
   Container,
   ContainerItens,
@@ -21,7 +21,7 @@ import {
 import { useUser } from '../../hooks/UserContext'
 import api from '../../services/api'
 
-function Login() {
+export function Login() {
   const history = useHistory()
 
   const { putUserData } = useUser()
@@ -52,7 +52,9 @@ function Login() {
         { validateStatus: () => true }
       )
       putUserData(data)
-      history.push('/')
+      setTimeout(() => {
+        history.push('/')
+      }, 2000)
 
       if (status === 201 || status === 200) {
         toast.success('Seja Bem-vindo')
@@ -105,5 +107,3 @@ function Login() {
     </Container>
   )
 }
-
-export default Login

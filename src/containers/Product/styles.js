@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
-export const Container = styled.div``
+export const Container = styled.div`
+  background: #e5e5e5;
+  min-height: 100vh;
+`
 
 export const ProductImg = styled.img`
   width: 100%;
@@ -22,4 +25,11 @@ export const CategoryButton = styled.button`
   line-height: 20px;
   color: ${props => (props.isActiveCategory ? '#9758a6' : '#9a9a9d')};
   padding-bottom: 5px;
+`
+
+export const ContainerCard = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
 `
