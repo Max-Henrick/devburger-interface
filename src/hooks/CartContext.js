@@ -18,8 +18,8 @@ export const CartProvider = ({ children }) => {
     if (cartIndex >= 0) {
       newCartProducts = cartProduct
 
-      newCartProducts[cartIndex].quantity =
-        newCartProducts[cartIndex].quantity + 1
+      newCartProducts[cartIndex].quantity += 1
+
       setCartProduct(newCartProducts)
     } else {
       product.quantity = 1

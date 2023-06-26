@@ -26,11 +26,19 @@ export function CartResume() {
           <p className="cart-items">Itens ({cartProduct.length})</p>
           <p className="price-items">{formatCurrency(finalPrice)}</p>
           <p className="delivery-tax">Taxa de entrega</p>
-          <p className="value-tax">{formatCurrency(taxValue)}</p>
+          <p className="value-tax">
+            {cartProduct && cartProduct.length > 0
+              ? formatCurrency(taxValue)
+              : 'R$ 0,00'}
+          </p>
         </div>
         <div className="container-botton">
           <p className="cart-total">Total</p>
-          <p className="price-total">{formatCurrency(finalPrice + taxValue)}</p>
+          <p className="price-total">
+            {cartProduct && cartProduct.length > 0
+              ? formatCurrency(finalPrice + taxValue)
+              : 'R$ 0,00'}
+          </p>
         </div>
       </ContainerResume>
       <Button style={{ marginTop: 20, width: '100%' }}>Finalizar pedido</Button>
