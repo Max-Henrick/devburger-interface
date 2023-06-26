@@ -48,7 +48,7 @@ export const ImageCarousel = styled.img`
 `
 
 export const Button = styled.button`
-  background: #9758a6;
+  background: #86b404;
   box-shadow: 0px 5px 10px rgba(151, 88, 166, 0.22),
     0px 20px 40px rgba(151, 88, 166, 0.24);
   border-radius: 8px;

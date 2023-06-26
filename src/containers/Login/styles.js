@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import BackgroundImg from '../../assets/Backgroud-white.png'
+
 export const Container = styled.div`
   height: 100vh;
   width: 100vw;
@@ -14,17 +16,22 @@ export const LoginImage = styled.img`
 `
 
 export const ContainerItens = styled.div`
-  background: #373737;
+  background: url(${BackgroundImg});
+  background-size: cover;
   height: 100%;
   width: 50%;
-  padding: 25px 175px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  align-items: center;
   form {
     display: flex;
     flex-direction: column;
+
+    button {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   h1 {
@@ -41,6 +48,12 @@ export const ContainerItens = styled.div`
     width: 338px;
     height: 125px;
   }
+
+  div {
+    background-color: #373737;
+    padding: 10px;
+    border-radius: 20px;
+  }
 `
 
 export const Label = styled.p`
@@ -55,7 +68,7 @@ export const Label = styled.p`
 `
 
 export const Input = styled.input`
-  background: #ffffff;
+  background: #b5b5b5;
   box-shadow: 3px 3px 10px rgba(74, 144, 226, 0.19);
   border-radius: 5px;
   border: ${props => (props.error ? '2px solid #CC1717' : 'none')};

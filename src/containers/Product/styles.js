@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 
+import BackgroundImg from '../../assets/Backgroud-white.png'
+
 export const Container = styled.div`
-  background: #e5e5e5;
+  background: url(${BackgroundImg});
+  background-size: cover;
   min-height: 100vh;
 `
 
@@ -10,20 +13,27 @@ export const ProductImg = styled.img`
 `
 
 export const ContainerItens = styled.div`
+  background-color: #373737;
+  height: 50px;
+  width: 55vw;
   display: flex;
+  margin-left: auto;
+  margin-right: auto;
   justify-content: center;
+  align-items: center;
   gap: 50px;
   margin-top: 20px;
+  border-radius: 50px;
 `
 
 export const CategoryButton = styled.button`
   background: none;
   cursor: pointer;
   border: none;
-  border-bottom: ${props => props.isActiveCategory && '2px solid #9758a6'};
+  border-bottom: ${props => props.isActiveCategory && '2px solid #86b404'};
   font-size: 17px;
   line-height: 20px;
-  color: ${props => (props.isActiveCategory ? '#9758a6' : '#9a9a9d')};
+  color: ${props => (props.isActiveCategory ? '#86b404' : '#9a9a9d')};
   padding-bottom: 5px;
 `
 

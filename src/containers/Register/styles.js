@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import BackgroundImg from '../../assets/Backgroud-white.png'
+
 export const Container = styled.div`
   height: 100vh;
   width: 100vw;
@@ -14,17 +16,23 @@ export const RegisterImage = styled.img`
 `
 
 export const ContainerItens = styled.div`
-  background: #373737;
+  background: url(${BackgroundImg});
+  background-size: cover;
   height: 100%;
   width: 50%;
   padding: 25px 175px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  align-items: center;
   form {
     display: flex;
     flex-direction: column;
+
+    button {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   h1 {
@@ -40,6 +48,12 @@ export const ContainerItens = styled.div`
   img {
     width: 338px;
     height: 125px;
+  }
+
+  div {
+    background-color: #373737;
+    padding: 10px;
+    border-radius: 20px;
   }
 `
 

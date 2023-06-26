@@ -4,7 +4,7 @@ export const ContainerButton = styled.button`
   width: 182px;
   height: 36px;
   border: none;
-  background: #9758a6;
+  background: #bac324;
   border-radius: 20px;
   font-style: normal;
   font-weight: 500;
@@ -15,9 +15,9 @@ export const ContainerButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    opacity: 0.7;
+    opacity: 0.9;
   }
   &:active {
-    opacity: 0.5;
+    opacity: 0.6;
   }
 `

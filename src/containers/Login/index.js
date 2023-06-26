@@ -72,37 +72,39 @@ export function Login() {
     <Container>
       <LoginImage src={LoginImg} alt="Login-image" />
       <ContainerItens>
-        <img src={Logo} alt="Logo" />
-        <h1>Login</h1>
+        <div>
+          <img src={Logo} alt="Logo" />
+          <h1>Login</h1>
 
-        <form noValidate onSubmit={handleSubmit(onSubmit)}>
-          <Label>Email</Label>
-          <Input
-            type="email"
-            {...register('email')}
-            error={errors.email?.message}
-          />
-          <ErrorMessage>{errors.email?.message}</ErrorMessage>
+          <form noValidate onSubmit={handleSubmit(onSubmit)}>
+            <Label>Email</Label>
+            <Input
+              type="email"
+              {...register('email')}
+              error={errors.email?.message}
+            />
+            <ErrorMessage>{errors.email?.message}</ErrorMessage>
 
-          <Label>Senha</Label>
-          <Input
-            type="password"
-            {...register('password')}
-            error={errors.password?.message}
-          />
-          <ErrorMessage>{errors.password?.message}</ErrorMessage>
+            <Label>Senha</Label>
+            <Input
+              type="password"
+              {...register('password')}
+              error={errors.password?.message}
+            />
+            <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
-          <Button type="submit" style={{ marginTop: 66, marginBottom: 28 }}>
-            Entrar
-          </Button>
-        </form>
+            <Button type="submit" style={{ marginTop: 66, marginBottom: 28 }}>
+              Entrar
+            </Button>
+          </form>
 
-        <P>
-          Não possui conta?{' '}
-          <Link style={{ color: 'white' }} to="/cadastro">
-            Cadastre-se
-          </Link>
-        </P>
+          <P>
+            Não possui conta?{' '}
+            <Link style={{ color: 'white' }} to="/cadastro">
+              Cadastre-se
+            </Link>
+          </P>
+        </div>
       </ContainerItens>
     </Container>
   )

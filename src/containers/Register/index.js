@@ -73,53 +73,57 @@ export function Register() {
     <Container>
       <RegisterImage src={logoRegister} alt="register-image" />
       <ContainerItens>
-        <img src={Logo} alt="Logo" />
-        <h1>Cadastre-se</h1>
+        <div>
+          <img src={Logo} alt="Logo" />
+          <h1>Cadastre-se</h1>
 
-        <form noValidate onSubmit={handleSubmit(onSubmit)}>
-          <Label error={errors.name?.message}>Nome</Label>
-          <Input
-            type="text"
-            {...register('name')}
-            error={errors.name?.message}
-          />
-          <ErrorMessage>{errors.name?.message}</ErrorMessage>
+          <form noValidate onSubmit={handleSubmit(onSubmit)}>
+            <Label error={errors.name?.message}>Nome</Label>
+            <Input
+              type="text"
+              {...register('name')}
+              error={errors.name?.message}
+            />
+            <ErrorMessage>{errors.name?.message}</ErrorMessage>
 
-          <Label error={errors.email?.message}>Email</Label>
-          <Input
-            type="email"
-            {...register('email')}
-            error={errors.email?.message}
-          />
-          <ErrorMessage>{errors.email?.message}</ErrorMessage>
+            <Label error={errors.email?.message}>Email</Label>
+            <Input
+              type="email"
+              {...register('email')}
+              error={errors.email?.message}
+            />
+            <ErrorMessage>{errors.email?.message}</ErrorMessage>
 
-          <Label error={errors.password?.message}>Senha</Label>
-          <Input
-            type="password"
-            {...register('password')}
-            error={errors.password?.message}
-          />
-          <ErrorMessage>{errors.password?.message}</ErrorMessage>
+            <Label error={errors.password?.message}>Senha</Label>
+            <Input
+              type="password"
+              {...register('password')}
+              error={errors.password?.message}
+            />
+            <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
-          <Label error={errors.confirmPassword?.message}>Confirmar Senha</Label>
-          <Input
-            type="password"
-            {...register('confirmPassword')}
-            error={errors.confirmPassword?.message}
-          />
-          <ErrorMessage>{errors.confirmPassword?.message}</ErrorMessage>
+            <Label error={errors.confirmPassword?.message}>
+              Confirmar Senha
+            </Label>
+            <Input
+              type="password"
+              {...register('confirmPassword')}
+              error={errors.confirmPassword?.message}
+            />
+            <ErrorMessage>{errors.confirmPassword?.message}</ErrorMessage>
 
-          <Button type="submit" style={{ marginTop: 26, marginBottom: 28 }}>
-            Cadastrar-se
-          </Button>
-        </form>
+            <Button type="submit" style={{ marginTop: 26, marginBottom: 28 }}>
+              Cadastrar-se
+            </Button>
+          </form>
 
-        <P>
-          Já possui conta?{' '}
-          <Link style={{ color: 'white' }} to="/login">
-            Faça login
-          </Link>
-        </P>
+          <P>
+            Já possui conta?{' '}
+            <Link style={{ color: 'white' }} to="/login">
+              Faça login
+            </Link>
+          </P>
+        </div>
       </ContainerItens>
     </Container>
   )
