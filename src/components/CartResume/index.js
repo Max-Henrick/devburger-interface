@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import { toast } from 'react-toastify'
 
 import { useCart } from '../../hooks/CartContext'
+import api from '../../services/api'
 import formatCurrency from '../../utils/formatCurrency'
 import { Button } from '../Button'
 import { ContainerResume } from './styles'
@@ -17,6 +19,21 @@ export function CartResume() {
 
     setFinalPrice(sumValues)
   }, [cartProduct])
+
+  const submitOrder = async () => {
+    const order = cartProduct.map(product => {
+      return { id: product.id, quantity: product.quantity }
+    })
+
+    if (order.length > 0) {
+      await toast.promise(api.post('orders', { products: order }), {
+        pending: 'Realizando seu pedido...',
+        success: 'Pedido realizado com sucesso'
+      })
+    } else {
+      toast.error('Verifique seu carrinho')
+    }
+  }
 
   return (
     <div>
@@ -41,7 +58,9 @@ export function CartResume() {
           </p>
         </div>
       </ContainerResume>
-      <Button style={{ marginTop: 20, width: '100%' }}>Finalizar pedido</Button>
+      <Button style={{ marginTop: 20, width: '100%' }} onClick={submitOrder}>
+        Finalizar pedido
+      </Button>
     </div>
   )
 }

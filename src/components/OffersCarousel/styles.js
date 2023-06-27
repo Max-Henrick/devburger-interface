@@ -9,15 +9,15 @@ export const Container = styled.div`
   padding: 25px 0;
 
   .rec.rec-arrow {
-    background-color: #9758a6;
+    background-color: #86b404;
     color: #efefef;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   }
 
   .rec.rec-arrow:hover {
-    border: 2px solid #9758a6;
+    border: 2px solid #86b404;
     background-color: #efefef;
-    color: #9758a6;
+    color: #86b404;
   }
 
   .rec.rec-arrow:disabled {

@@ -52,9 +52,6 @@ export function Login() {
         { validateStatus: () => true }
       )
       putUserData(data)
-      setTimeout(() => {
-        history.push('/')
-      }, 2000)
 
       if (status === 201 || status === 200) {
         toast.success('Seja Bem-vindo')
@@ -66,6 +63,10 @@ export function Login() {
     } catch (error) {
       toast.error('Tente novamente mais tarde')
     }
+
+    setTimeout(() => {
+      history.push('/')
+    }, 1000)
   }
 
   return (

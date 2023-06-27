@@ -5,7 +5,7 @@ import BackgroundImg from '../../assets/Backgroud-white.png'
 export const Container = styled.div`
   background: url(${BackgroundImg});
   background-size: cover;
-  min-height: 100vh;
+  min-height: calc(100vh - 66px);
 `
 
 export const ProductImg = styled.img`

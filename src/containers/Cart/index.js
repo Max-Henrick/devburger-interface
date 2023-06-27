@@ -6,7 +6,6 @@ import {
   CartImg,
   Container,
   ContainerCartItems,
-  Footer,
   ContainerCart
 } from '../Cart/styles'
 
@@ -20,10 +19,6 @@ export function Cart() {
           <CartResume />
         </ContainerCartItems>
       </Container>
-      <Footer>
-        <p>Todos os Dereitos reservados.</p>
-        <p>Projeto realizado por Max Henrique &reg;</p>
-      </Footer>
     </ContainerCart>
   )
 }

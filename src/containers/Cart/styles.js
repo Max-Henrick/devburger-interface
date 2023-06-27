@@ -18,13 +18,3 @@ export const ContainerCartItems = styled.div`
   justify-content: space-evenly;
   margin-top: 20px;
 `
-
-export const Footer = styled.div`
-  background-color: #373737;
-  text-align: center;
-  margin-top: 20px;
-  height: 50px;
-  color: #b5b5b5;
-  font-size: 16px;
-  padding-top: 10px;
-`
