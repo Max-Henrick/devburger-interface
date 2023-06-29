@@ -6,6 +6,7 @@ export const Container = styled.div`
   border-radius: 20px;
   padding: 10px;
   width: 60vw;
+  margin-bottom: 20px;
 `
 
 export const Header = styled.div`

@@ -21,7 +21,6 @@ export function Header() {
   } = useHistory()
 
   const { userData, logout } = useUser()
-  const { name } = userData
 
   const logoutUser = () => {
     logout()
@@ -52,7 +51,7 @@ export function Header() {
           <img src={Person} alt="Imagem carrinho" />
         </PageLink>
         <ContainerText>
-          <p>Olá! {name}</p>
+          <p>Olá! {userData.name}</p>
           <ExitLink onClick={logoutUser}>Sair</ExitLink>
         </ContainerText>
       </ContainerRight>

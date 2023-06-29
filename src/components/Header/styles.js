@@ -21,7 +21,7 @@ export const PageLink = styled.a`
   cursor: pointer;
   color: ${props => (props.isActive ? '#bac324' : '#555555')};
   font-weight: ${props => (props.isActive ? 'bold' : 'normal')};
-  border-bottom: ${props => (props.isActive ? '1px solid #bac324' : 'none')};
+  border-bottom: ${props => (props.isActive ? '2px solid #bac324' : 'none')};
 `
 
 export const ContainerRight = styled.div`
@@ -37,7 +37,7 @@ export const ExitLink = styled.a`
   font-size: 18px;
   font-weight: 700;
   line-height: 16px;
-  color: #bac324;
+  color: #ff0000;
   cursor: pointer;
 `
 

@@ -5,6 +5,6 @@ export const ContainerFooter = styled.div`
   text-align: center;
   color: #b5b5b5;
   font-size: 16px;
-  padding-top: 10px;
+  padding: 10px 0px;
   margin-top: -10px;
 `

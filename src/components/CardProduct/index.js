@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
 import PropTypes from 'prop-types'
 
@@ -7,6 +8,7 @@ import { Button } from '../Button'
 import { CardImg, Container, ProductName, ProductPrice } from './styles'
 
 export function CardProduct({ product }) {
+  const { push } = useHistory()
   const { putProductInCart } = useCart()
   return (
     <Container>
@@ -14,7 +16,14 @@ export function CardProduct({ product }) {
       <div>
         <ProductName>{product.name}</ProductName>
         <ProductPrice>{product.formatPrice}</ProductPrice>
-        <Button onClick={() => putProductInCart(product)}>Adicione</Button>
+        <Button
+          onClick={() => {
+            putProductInCart(product)
+            push('/carrinho')
+          }}
+        >
+          Adicione
+        </Button>
       </div>
     </Container>
   )
