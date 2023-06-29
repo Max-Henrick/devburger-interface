@@ -22,7 +22,7 @@ import { useUser } from '../../hooks/UserContext'
 import api from '../../services/api'
 
 export function Login() {
-  const history = useHistory()
+  const { push } = useHistory()
 
   const { putUserData } = useUser()
 
@@ -53,6 +53,16 @@ export function Login() {
       )
       putUserData(data)
 
+      if (data.admin) {
+        setTimeout(() => {
+          push('/pedidos')
+        }, 1000)
+      } else {
+        setTimeout(() => {
+          push('/')
+        }, 1000)
+      }
+
       if (status === 201 || status === 200) {
         toast.success('Seja Bem-vindo')
       } else if (status === 400 || status === 401) {
@@ -63,10 +73,6 @@ export function Login() {
     } catch (error) {
       toast.error('Tente novamente mais tarde')
     }
-
-    setTimeout(() => {
-      history.push('/')
-    }, 1000)
   }
 
   return (
