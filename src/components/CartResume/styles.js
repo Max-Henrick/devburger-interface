@@ -48,3 +48,7 @@ export const ContainerResume = styled.div`
     margin-top: 60px;
   }
 `
+
+export const Container = styled.div`
+  margin-bottom: 30px;
+`

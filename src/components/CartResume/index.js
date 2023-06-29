@@ -5,7 +5,7 @@ import { useCart } from '../../hooks/CartContext'
 import api from '../../services/api'
 import formatCurrency from '../../utils/formatCurrency'
 import { Button } from '../Button'
-import { ContainerResume } from './styles'
+import { ContainerResume, Container } from './styles'
 
 export function CartResume() {
   const { cartProduct } = useCart()
@@ -36,7 +36,7 @@ export function CartResume() {
   }
 
   return (
-    <div>
+    <Container>
       <ContainerResume>
         <div className="container-top">
           <h2 className="cart-resume">Resumo do pedido</h2>
@@ -61,6 +61,6 @@ export function CartResume() {
       <Button style={{ marginTop: 20, width: '100%' }} onClick={submitOrder}>
         Finalizar pedido
       </Button>
-    </div>
+    </Container>
   )
 }
