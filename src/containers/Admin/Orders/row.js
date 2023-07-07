@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactSelect from 'react-select'
 
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
@@ -14,11 +13,16 @@ import TableRow from '@mui/material/TableRow'
 import Typography from '@mui/material/Typography'
 import PropTypes from 'prop-types'
 
+import api from '../../../services/api'
 import status from './order-status'
-import { ProductImg } from './styles'
+import { ProductImg, ReactSelectStatus } from './styles'
 
 function Row({ row }) {
   const [open, setOpen] = React.useState(false)
+
+  async function setNewStatus(id, status) {
+    await api.put(`orders/${id}`, { status })
+  }
 
   return (
     <React.Fragment>
@@ -37,7 +41,19 @@ function Row({ row }) {
         </TableCell>
         <TableCell>{row.name}</TableCell>
         <TableCell>{row.date}</TableCell>
-        <TableCell>{row.status}</TableCell>
+        <TableCell>
+          <ReactSelectStatus
+            options={status}
+            placeholder="status"
+            menuPortalTarget={document.body}
+            defaultValue={
+              status.find(options => options.value === row.status) || null
+            }
+            onChange={newValue => {
+              setNewStatus(row.orderId, newValue.value)
+            }}
+          />
+        </TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
