@@ -11,16 +11,16 @@ export const Container = styled.div`
 `
 
 export const RegisterImage = styled.img`
-  height: 100%;
-  width: 50%;
+  height: 100vh;
+  width: 50vw;
 `
 
 export const ContainerItens = styled.div`
   background: url(${BackgroundImg});
   background-size: cover;
-  height: 100%;
-  width: 50%;
-  padding: 25px 175px;
+  height: 100vh;
+  width: 55vw;
+  padding: 10px 175px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,44 +37,46 @@ export const ContainerItens = styled.div`
 
   h1 {
     font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 28px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 22px;
     color: #ffffff;
-    margin-top: 15px;
     margin-left: 100px;
   }
 
   img {
-    width: 338px;
-    height: 125px;
+    width: 180px;
+    height: 80px;
+    margin-left: 63px;
   }
 
   div {
     background-color: #373737;
     padding: 10px;
     border-radius: 20px;
+    min-height: max-content;
+    height: 95%;
   }
 `
 
 export const Label = styled.p`
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 12px;
   line-height: 14px;
   color: #ffffff;
   margin-top: ${props => (props.error ? '12px' : '25px')};
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
   padding-left: 5px;
 `
 
 export const Input = styled.input`
-  background: #ffffff;
+  background: #b5b5b5;
   box-shadow: 3px 3px 10px rgba(74, 144, 226, 0.19);
   border-radius: 5px;
   border: ${props => (props.error ? '2px solid #CC1717' : 'none')};
   padding-left: 5px;
-  width: 338.42px;
+  width: 308.42px;
   height: 38.32px;
 `
 

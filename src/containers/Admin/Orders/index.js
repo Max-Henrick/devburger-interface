@@ -16,6 +16,8 @@ import { Container, Menu, LinkMenu } from './styles'
 
 function Orders() {
   const [orders, setOrders] = useState([])
+  const [filteredOrders, setFilteredOrders] = useState([])
+  const [activeStatus, setActiveStatus] = useState(1)
   const [rows, setRows] = useState([])
 
   useEffect(() => {
@@ -23,6 +25,7 @@ function Orders() {
       const { data } = await api.get('orders')
 
       setOrders(data)
+      setFilteredOrders(data)
     }
 
     loadOrders()
@@ -39,18 +42,32 @@ function Orders() {
   }
 
   useEffect(() => {
-    const newOrder = orders.map(ord => createData(ord))
+    const newOrder = filteredOrders.map(ord => createData(ord))
     setRows(newOrder)
-  }, [orders])
+  }, [filteredOrders])
 
-  console.log(rows)
+  function handleStatus(status) {
+    if (status.id === 1) {
+      setFilteredOrders(orders)
+    } else {
+      const newOrders = orders.filter(order => order.status === status.value)
+      setFilteredOrders(newOrders)
+    }
+    setActiveStatus(status.id)
+  }
 
   return (
     <Container>
       <Menu>
         {status &&
           status.map(status => (
-            <LinkMenu key={status.id}>{status.label}</LinkMenu>
+            <LinkMenu
+              key={status.id}
+              onClick={() => handleStatus(status)}
+              isActiveStatus={activeStatus === status.id}
+            >
+              {status.label}
+            </LinkMenu>
           ))}
       </Menu>
       <TableContainer component={Paper}>

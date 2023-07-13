@@ -19,7 +19,7 @@ export const ContainerItens = styled.div`
   background: url(${BackgroundImg});
   background-size: cover;
   height: 100%;
-  width: 50%;
+  width: 55%;
   display: flex;
   flex-direction: column;
   justify-content: center;
