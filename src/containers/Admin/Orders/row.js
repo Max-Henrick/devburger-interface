@@ -17,11 +17,16 @@ import api from '../../../services/api'
 import status from './order-status'
 import { ProductImg, ReactSelectStatus } from './styles'
 
-function Row({ row }) {
+function Row({ row, setOrders, orders }) {
   const [open, setOpen] = React.useState(false)
 
   async function setNewStatus(id, status) {
     await api.put(`orders/${id}`, { status })
+
+    const newOrders = orders.map(ord => {
+      return ord._id === id ? { ...ord, status } : ord
+    })
+    setOrders(newOrders)
   }
 
   return (
@@ -43,7 +48,7 @@ function Row({ row }) {
         <TableCell>{row.date}</TableCell>
         <TableCell>
           <ReactSelectStatus
-            options={status}
+            options={status.filter(sts => sts.value !== 'Todos')}
             placeholder="status"
             menuPortalTarget={document.body}
             defaultValue={
@@ -96,6 +101,8 @@ function Row({ row }) {
 }
 
 Row.propTypes = {
+  orders: PropTypes.array,
+  setOrders: PropTypes.func,
   row: PropTypes.shape({
     orderId: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
