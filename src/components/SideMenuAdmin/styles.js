@@ -13,7 +13,7 @@ export const Container = styled.div`
 `
 
 export const ItemContainer = styled.div`
-  background: ${props => (props.isActive ? '#565656' : 'none')};
+  background: ${props => (props.isActiveMenu ? '#565656' : 'none')};
   height: 60px;
   display: flex;
   align-items: center;

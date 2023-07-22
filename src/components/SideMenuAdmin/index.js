@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import ExitToAppIcon from '@mui/icons-material/ExitToApp'
 
@@ -8,11 +8,19 @@ import { Container, ItemContainer, ItemLink } from './styles'
 
 export function SideMenuAdmin() {
   const { logout } = useUser()
+  const [isActiveMenu, setIsActiveMenu] = useState(1)
+
   return (
     <Container>
       <hr></hr>
       {listLinks.map(item => (
-        <ItemContainer key={item.id} isActive={true}>
+        <ItemContainer
+          key={item.id}
+          isActiveMenu={isActiveMenu === item.id}
+          onClick={() => {
+            setIsActiveMenu(item.id)
+          }}
+        >
           <item.icon className="icon" />
           <ItemLink to={item.link}>{item.label}</ItemLink>
         </ItemContainer>
