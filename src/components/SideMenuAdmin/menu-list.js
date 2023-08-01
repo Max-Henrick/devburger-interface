@@ -18,7 +18,7 @@ const listLinks = [
   {
     id: 3,
     label: 'Adicionar/Editar Produto',
-    link: '',
+    link: '/novo-produto',
     icon: AddToQueueOutlinedIcon
   }
 ]

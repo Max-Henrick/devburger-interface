@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 import { SideMenuAdmin } from '../../components'
 import ListProducts from './ListProducts'
+import NewProduct from './NewProduct'
 import Orders from './Orders'
 import { Container } from './styles'
 
@@ -13,6 +14,7 @@ export function Admin({ match: { path } }) {
       <SideMenuAdmin />
       {path === '/pedidos' && <Orders />}
       {path === '/listar-produtos' && <ListProducts />}
+      {path === '/novo-produto' && <NewProduct />}
     </Container>
   )
 }
