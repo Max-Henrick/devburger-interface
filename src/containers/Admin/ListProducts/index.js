@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 import CancelPresentationOutlinedIcon from '@mui/icons-material/CancelPresentationOutlined'
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined'
@@ -17,6 +18,7 @@ import { Container, EditedButton } from './styles'
 
 function ListProducts() {
   const [products, setProducts] = useState([])
+  const { push } = useHistory()
 
   useEffect(() => {
     async function loadOrders() {
@@ -33,6 +35,10 @@ function ListProducts() {
       return <CheckBoxOutlinedIcon style={{ color: 'green' }} />
     }
     return <CancelPresentationOutlinedIcon />
+  }
+
+  function editProduct(product) {
+    push('/editar-produto', { product })
   }
 
   return (
@@ -66,7 +72,9 @@ function ListProducts() {
                 </TableCell>
                 <TableCell>
                   <EditedButton>
-                    <ModeEditOutlineOutlinedIcon />
+                    <ModeEditOutlineOutlinedIcon
+                      onClick={() => editProduct(product)}
+                    />
                   </EditedButton>
                 </TableCell>
               </TableRow>

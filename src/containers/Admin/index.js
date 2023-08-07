@@ -15,6 +15,7 @@ export function Admin({ match: { path } }) {
       {path === '/pedidos' && <Orders />}
       {path === '/listar-produtos' && <ListProducts />}
       {path === '/novo-produto' && <NewProduct />}
+      {path === '/editar-produto' && <NewProduct />}
     </Container>
   )
 }

@@ -17,7 +17,7 @@ import {
   ErrorMessage
 } from './styles'
 
-function NewProduct() {
+function EditProduct() {
   const [fileName, setFileName] = useState(null)
   const [categories, setCategories] = useState([])
   const { push } = useHistory()
@@ -113,4 +113,4 @@ function NewProduct() {
   )
 }
 
-export default NewProduct
+export default EditProduct
