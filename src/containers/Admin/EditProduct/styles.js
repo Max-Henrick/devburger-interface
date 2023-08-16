@@ -65,3 +65,28 @@ export const ErrorMessage = styled.p`
   padding-left: 5px;
   margin-bottom: 20px;
 `
+
+export const Title = styled.h1`
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+`
+
+export const InputOffer = styled.div`
+  color: #ffffff;
+  display: flex;
+  gap: 10px;
+
+  input {
+    cursor: pointer;
+    width: 20px;
+  }
+
+  p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+  }
+`

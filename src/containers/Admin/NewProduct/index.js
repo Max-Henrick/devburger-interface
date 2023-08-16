@@ -14,7 +14,8 @@ import {
   Label,
   ButtonStyle,
   LabelUpload,
-  ErrorMessage
+  ErrorMessage,
+  Title
 } from './styles'
 
 function NewProduct() {
@@ -69,6 +70,7 @@ function NewProduct() {
   return (
     <Container>
       <form noValidate onSubmit={handleSubmit(onSubmit)}>
+        <Title>Adicionar produto!</Title>
         <Label>Nome</Label>
         <Input type="text" {...register('name')} />
         <ErrorMessage>{errors.name?.message}</ErrorMessage>

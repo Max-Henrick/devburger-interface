@@ -14,21 +14,26 @@ import {
   Label,
   ButtonStyle,
   LabelUpload,
-  ErrorMessage
+  ErrorMessage,
+  Title,
+  InputOffer
 } from './styles'
 
 function EditProduct() {
   const [fileName, setFileName] = useState(null)
   const [categories, setCategories] = useState([])
-  const { push } = useHistory()
+  const {
+    push,
+    location: {
+      state: { product }
+    }
+  } = useHistory()
 
   const schema = Yup.object().shape({
     name: Yup.string().required('O nome é obrigatório'),
-    price: Yup.string().required('O preço é obrigatório'),
+    price: Yup.number().required('O preço é obrigatório'),
     category_id: Yup.object().required('A categoria é obrigatória'),
-    file: Yup.mixed().test('file', 'Carregue uma imagem', value => {
-      return value?.length > 0
-    })
+    offer: Yup.bool()
   })
   const {
     register,
@@ -45,11 +50,12 @@ function EditProduct() {
     productFormData.append('price', data.price)
     productFormData.append('category_id', data.category_id.id)
     productFormData.append('file', data.file[0])
+    productFormData.append('offer', data.offer)
 
-    await toast.promise(api.post('products', productFormData), {
-      pending: 'Carregando novo produto',
-      success: 'Cadastrado com sucesso',
-      error: 'Falha ao criar novo produto'
+    await toast.promise(api.put(`products/${product.id}`, productFormData), {
+      pending: 'Editando produto',
+      success: 'Produto editado com sucesso',
+      error: 'Falha ao editar novo produto'
     })
     setTimeout(() => {
       push('/listar-produtos')
@@ -69,12 +75,17 @@ function EditProduct() {
   return (
     <Container>
       <form noValidate onSubmit={handleSubmit(onSubmit)}>
+        <Title>Editar produto!</Title>
         <Label>Nome</Label>
-        <Input type="text" {...register('name')} />
+        <Input type="text" {...register('name')} defaultValue={product.name} />
         <ErrorMessage>{errors.name?.message}</ErrorMessage>
 
         <Label>Preço</Label>
-        <Input type="number" {...register('price')} />
+        <Input
+          type="number"
+          {...register('price')}
+          defaultValue={product.price}
+        />
         <ErrorMessage>{errors.price?.message}</ErrorMessage>
 
         <LabelUpload>
@@ -93,6 +104,7 @@ function EditProduct() {
         <Controller
           name="category_id"
           control={control}
+          defaultValue={product.category}
           render={({ field }) => {
             return (
               <ReactSelect
@@ -101,13 +113,22 @@ function EditProduct() {
                 getOptionLabel={cat => cat.name}
                 getOptionValue={cat => cat.id}
                 placeholder="Escolha a categoria"
+                defaultValue={product.category}
               />
             )
           }}
         ></Controller>
         <ErrorMessage>{errors.category_id?.message}</ErrorMessage>
+        <InputOffer>
+          <input
+            type="checkbox"
+            defaultChecked={product.offer}
+            {...register('offer')}
+          />
+          <p>O produto está em oferta?</p>
+        </InputOffer>
 
-        <ButtonStyle>Adicionar produto</ButtonStyle>
+        <ButtonStyle>Editar produto</ButtonStyle>
       </form>
     </Container>
   )

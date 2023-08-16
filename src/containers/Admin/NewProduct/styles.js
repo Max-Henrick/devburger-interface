@@ -65,3 +65,10 @@ export const ErrorMessage = styled.p`
   padding-left: 5px;
   margin-bottom: 20px;
 `
+
+export const Title = styled.h1`
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+`
