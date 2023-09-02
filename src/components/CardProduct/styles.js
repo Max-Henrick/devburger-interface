@@ -17,7 +17,8 @@ export const Container = styled.div`
 
 export const CardImg = styled.img`
   border-radius: 20px;
-  height: 130px;
+  height: 150px;
+  width: 150px;
 `
 
 export const ProductName = styled.div`

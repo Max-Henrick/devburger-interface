@@ -36,7 +36,8 @@ export const ContainerItens = styled.div`
 `
 
 export const ImageCarousel = styled.img`
-  width: 200px;
+  height: 180px;
+  width: 180px;
   border-radius: 10px;
 `
 
