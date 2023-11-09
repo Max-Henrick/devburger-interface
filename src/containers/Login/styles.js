@@ -9,7 +9,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 400px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
