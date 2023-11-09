@@ -8,6 +8,11 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 700px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 `
 
 export const LoginImage = styled.img`
